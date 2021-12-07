@@ -1,4 +1,4 @@
-package umer.task.pakrism.ui
+package umer.task.pakrism.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

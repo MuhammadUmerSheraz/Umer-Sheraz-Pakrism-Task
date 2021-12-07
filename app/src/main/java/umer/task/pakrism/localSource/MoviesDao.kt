@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import umer.task.pakrism.ui.Movies
+import umer.task.pakrism.model.Movies
 
 @Dao
 interface MoviesDao {

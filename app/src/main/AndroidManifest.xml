@@ -6,29 +6,30 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name="umer.task.pakrism.MainApplication"
+        android:name=".MainApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.BuyMovieActivity"
 
-
+            android:exported="false"
+            android:label="@string/buy" />
         <activity
             android:name=".ui.MovieDetailsActivity"
             android:label="@string/Movie_Detail" />
         <activity
-            android:exported="true"
             android:name=".ui.MoviesActivity"
-            android:label="@string/movies" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

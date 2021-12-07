@@ -9,19 +9,23 @@ import umer.task.pakrism.utils.UseCaseResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import umer.task.pakrism.model.Movies
 
 class MovieViewModel(val networkCheck: NetworkCheck, val repositoryData: RepositoryData) :
     BaseViewModel() {
     val movieList = SingleLiveEvent<List<Movies>>()
     val movieDetail = SingleLiveEvent<MovieResponseDetails>()
 
+    fun isNetwork(): Boolean {
+        return networkCheck.isInternetAvailable()
+    }
 
     fun getMovies() {
         isLoading.value = true
         launch {
             val result = withContext(Dispatchers.IO) {
 
-                if (networkCheck.isInternetAvailable()) {
+                if (isNetwork()) {
                     repositoryData.loadMoviesRemote()
                 } else {
                     repositoryData.getMoviesFromLocal()
@@ -39,7 +43,7 @@ class MovieViewModel(val networkCheck: NetworkCheck, val repositoryData: Reposit
     }
 
 
-    fun getMovieDetails(movieId : String) {
+    fun getMovieDetails(movieId: String) {
         isLoading.value = true
         launch {
             val result = withContext(Dispatchers.IO) {

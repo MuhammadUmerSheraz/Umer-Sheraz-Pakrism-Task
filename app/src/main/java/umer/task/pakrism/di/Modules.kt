@@ -23,6 +23,7 @@ import java.util.concurrent.TimeUnit
 
 object Modules {
     private const val BASE_URL = "https://api.themoviedb.org"
+     const val BASE_IMAGE_URL ="https://image.tmdb.org/t/p/w300"
 
     val appModules = module {
 

@@ -1,22 +1,18 @@
 package umer.task.pakrism.repositories
 
 import android.content.Context
+import umer.task.pakrism.AppConstants
 import umer.task.pakrism.localSource.AppDatabase
 import umer.task.pakrism.remoteSource.ApiInterface
 import umer.task.pakrism.remoteSource.Movie
 import umer.task.pakrism.remoteSource.MovieResponseDetails
-import umer.task.pakrism.ui.Movies
+import umer.task.pakrism.model.Movies
 import umer.task.pakrism.utils.SafeApiRequest
 import umer.task.pakrism.utils.UseCaseResult
 
 class RepositoryData(context: Context,    private val apiInterface: ApiInterface
 ) : SafeApiRequest(context) {
-
-
-
     private lateinit var appDatabase: AppDatabase
-
-
     init {
         initDatabase(context)
     }
@@ -30,8 +26,9 @@ class RepositoryData(context: Context,    private val apiInterface: ApiInterface
     suspend fun loadMoviesRemote(): UseCaseResult<List<Movies>> {
 
         return try {
-            val result = apiInterface.getMovie(umer.task.pakrism.AppConstants.API_KEY).await()
+            val result = apiInterface.getMovie(AppConstants.API_KEY).await()
             val list = getMappedMovies(result.results)
+            appDatabase.getMoviesDao().insertAllMovies(list)
             UseCaseResult.Success(list)
         } catch (ex: Exception) {
             UseCaseResult.Error(ex)
@@ -48,7 +45,7 @@ class RepositoryData(context: Context,    private val apiInterface: ApiInterface
 
    suspend fun getMovieDetail(movieId : String) :UseCaseResult<MovieResponseDetails> {
        return try {
-            val result =apiInterface.getMovieDetails(movieId, umer.task.pakrism.AppConstants.API_KEY).await()
+            val result =apiInterface.getMovieDetails(movieId, AppConstants.API_KEY).await()
            UseCaseResult.Success(result)
         } catch (ex: Exception) {
             UseCaseResult.Error(ex)
