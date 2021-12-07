@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">TMDB</string>
-    <string name="movies">Movies</string>
+    <string name="app_name">Umer Sheraz Task</string>
+    <string name="movies">Upcoming Movies</string>
     <string name="movie_poster">Movie Poster</string>
     <string name="overview">Overview:</string>
     <string name="tagLine">Tagline:</string>
@@ -20,4 +20,5 @@
     <string name="airing_today">Airing Today</string>
     <string name="first_air_date">First Air Date</string>
     <string name="tmdb_logo">TMDB Logo</string>
+    <string name="no_internet">No internet connection</string>
 </resources>

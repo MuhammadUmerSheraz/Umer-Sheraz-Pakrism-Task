@@ -13,6 +13,6 @@ interface MoviesDao {
     fun insertAllMovies(movies : List<Movies>)
 
     @Query("SELECT * FROM Movies ORDER BY id ASC")
-    fun getAllPopularMovies() : List<Movies>
+    fun getAllUpComingMovies() : List<Movies>
 
 }
