@@ -1,4 +1,4 @@
-package umer.task.pakrism.remoteSource
+package umer.task.pakrism.model.respone
 
 data class MovieResponse(val results : List<Movie>)
 

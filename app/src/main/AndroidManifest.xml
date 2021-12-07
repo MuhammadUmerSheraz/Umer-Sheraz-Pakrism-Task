@@ -20,7 +20,7 @@
             android:label="@string/buy" />
         <activity
             android:name=".ui.MovieDetailsActivity"
-            android:label="@string/Movie_Detail" />
+            android:label="@string/movie_Detail" />
         <activity
             android:name=".ui.MoviesActivity"
             android:exported="true">

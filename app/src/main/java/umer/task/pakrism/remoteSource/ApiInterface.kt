@@ -4,6 +4,8 @@ import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
+import umer.task.pakrism.model.respone.MovieResponseDetails
+import umer.task.pakrism.model.respone.MovieResponse
 
 interface ApiInterface {
 

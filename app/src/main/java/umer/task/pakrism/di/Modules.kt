@@ -19,6 +19,7 @@ import retrofit2.CallAdapter
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import umer.task.pakrism.utils.NetworkConnectionInterceptor
 import java.util.concurrent.TimeUnit
 
 object Modules {
@@ -27,14 +28,17 @@ object Modules {
 
     val appModules = module {
 
+        factory {
+            NetworkConnectionInterceptor(get())
+        }
+
         single {
             createWebService<ApiInterface>(
-                okHttpClient = createHttpClient(),
+                okHttpClient = createHttpClient(get()),
                 factory = RxJava2CallAdapterFactory.create(),
                 baseUrl = BASE_URL
             )
         }
-
 
         factory {
             NetworkCheck(get())
@@ -42,6 +46,8 @@ object Modules {
         factory {
             RepositoryData(get(),get())
         }
+
+
     }
     val viewModelModules = module {
         viewModel { MovieViewModel(get(),get()) }
@@ -76,7 +82,7 @@ object Modules {
         return retrofit.create(T::class.java)
     }
 
-    fun createHttpClient(): OkHttpClient {
+    fun createHttpClient(networkConnectionInterceptor:NetworkConnectionInterceptor): OkHttpClient {
         val interceptor = HttpLoggingInterceptor()
         interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)
         return OkHttpClient.Builder()
@@ -84,6 +90,7 @@ object Modules {
             .readTimeout(1, TimeUnit.MINUTES)
             .writeTimeout(1, TimeUnit.MINUTES)
             .addInterceptor(interceptor)
+            .addInterceptor(networkConnectionInterceptor)
             .build()
     }
 

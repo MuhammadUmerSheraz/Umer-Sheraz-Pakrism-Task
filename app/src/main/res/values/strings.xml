@@ -6,11 +6,13 @@
     <string name="buy">Buy Ticket</string>
     <string name="releaseDate">Release Date</string>
     <string name="voteAverage">Vote Average</string>
-    <string name="Movie_Detail">Movie Details</string>
+    <string name="movie_Detail">Movie Details</string>
+    <string name="no_internet">Internet is not connected</string>
     <string name="upcoming_movie">Upcoming Movie</string>
     <string name="choose_seats">Choose seats</string>
     <string name="selected_seat_s">Selected Seat(s)</string>
     <string name="total_bill">Total Bill</string>
     <string name="buy_ticket_rs_100">Buy Ticket (Rs 100)</string>
     <string name="movie_name">Movie Name</string>
+    <string name="no_record_found">No record found</string>
 </resources>

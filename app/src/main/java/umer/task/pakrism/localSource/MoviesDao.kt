@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import umer.task.pakrism.model.Movies
+import umer.task.pakrism.model.db.Movies
 
 @Dao
 interface MoviesDao {
@@ -12,7 +12,7 @@ interface MoviesDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAllMovies(movies : List<Movies>)
 
-    @Query("SELECT * FROM Movies ORDER BY id ASC")
+    @Query("SELECT * FROM Movies ORDER BY original_title ASC")
     fun getAllUpComingMovies() : List<Movies>
 
 }

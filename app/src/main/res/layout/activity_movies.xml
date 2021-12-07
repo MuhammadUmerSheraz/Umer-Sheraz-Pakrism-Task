@@ -15,4 +15,13 @@
         app:spanCount="2"
         tools:listitem="@layout/item_list_movies_content" />
 
+    <TextView
+        android:visibility="gone"
+        android:textSize="@dimen/_16sdp"
+        android:id="@+id/no_record_found"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/no_record_found"
+        android:textColor="@android:color/white" />
 </RelativeLayout>

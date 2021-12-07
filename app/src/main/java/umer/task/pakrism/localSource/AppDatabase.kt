@@ -4,12 +4,14 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import umer.task.pakrism.model.Movies
+import umer.task.pakrism.model.db.MovieDetail
+import umer.task.pakrism.model.db.Movies
 
-@Database(entities = [Movies::class], version = 1, exportSchema = false)
+@Database(entities = [Movies::class, MovieDetail::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun getMoviesDao() : MoviesDao
+    abstract fun getMoviesDetailDao() : MovieDetailDao
 
     companion object{
         @Volatile
