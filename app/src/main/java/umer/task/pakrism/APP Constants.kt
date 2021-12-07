@@ -5,5 +5,6 @@ class AppConstants {
 
     companion object {
         const val API_KEY = BuildConfig.API_KEY
+        const val name = "name"
     }
 }

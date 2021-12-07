@@ -8,6 +8,7 @@ import kotlinx.android.synthetic.main.activity_movie_details.*
 import umer.task.pakrism.R
 import umer.task.pakrism.base.BaseActivty
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import umer.task.pakrism.AppConstants
 import umer.task.pakrism.di.Modules.BASE_IMAGE_URL
 
 class MovieDetailsActivity : BaseActivty() {
@@ -25,26 +26,23 @@ class MovieDetailsActivity : BaseActivty() {
         movieViewModel.getMovieDetails(movieId)
 
 
-        movieViewModel.movieDetail.observe(this, {
-            Picasso.get().load(BASE_IMAGE_URL + it.backdrop_path)
+        movieViewModel.movieDetail.observe(this, {movie->
+            Picasso.get().load(BASE_IMAGE_URL + movie.backdrop_path)
                 .into(backdrop_path)
 
-            Picasso.get().load(BASE_IMAGE_URL + it.poster_path)
-                .into(poster_path)
-
-            movie_name.text = it.original_title
-            overview_detail.text = it.overview
-            tagLineDetails.text = it.tagline
-            statusDetails.text = it.status
-            releaseDateDetails.text = it.release_date
-            vote_average_detail.text = it.vote_average.toString()
-
+            movie_name.text = movie.original_title
+            overview_detail.text = movie.overview
+            tagLineDetails.text = movie.tagline
+            statusDetails.text = movie.status
+            releaseDateDetails.text = movie.release_date
+            vote_average_detail.text = movie.vote_average.toString()
             buy.setOnClickListener {
                 startActivity(Intent(this, BuyMovieActivity::class.java).apply {
-                    putExtra("id", it.id.toString())
+                    putExtra(AppConstants.name, movie.original_title)
                 })
             }
         })
+
 
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

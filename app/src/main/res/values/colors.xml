@@ -2,13 +2,11 @@
 <resources>
 
 
- <color name="colorAccent">@android:color/black</color>
-    <color name="moviesBackground" >@android:color/black</color>
- <color name="colorPrimary">#263238</color>
+    <color name="colorAccent">@android:color/black</color>
+    <color name="moviesBackground">@android:color/black</color>
+    <color name="colorPrimary">#263238</color>
     <color name="colorPrimaryDark">#263238</color>
-
-
- <color name="colorError">#b00020</color>
+    <color name="colorError">#b00020</color>
 
 
 </resources>

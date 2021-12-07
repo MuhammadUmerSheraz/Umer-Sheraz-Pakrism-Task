@@ -22,7 +22,7 @@ abstract class BaseActivty : AppCompatActivity() {
         }
         )
         viewModel.isError.observe(this, {
-            Toast.makeText(this, it, Toast.LENGTH_LONG).show()
+            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
         }
         )
     }

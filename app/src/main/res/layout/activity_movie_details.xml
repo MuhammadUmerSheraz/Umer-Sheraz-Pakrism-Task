@@ -14,7 +14,7 @@
         android:layout_above="@+id/buy"
         android:layout_alignParentTop="true">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -23,167 +23,132 @@
                 android:id="@+id/backdrop_path"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="50dp"
                 android:minHeight="260dp"
                 android:scaleType="fitXY"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 tools:src="@drawable/ic_launcher_background" />
 
-            <ImageView
-                android:id="@+id/poster_path"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:scaleType="fitXY"
-                android:visibility="invisible"
-                app:layout_constraintBottom_toTopOf="@id/overview"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:src="@drawable/ic_launcher_background" />
+                android:orientation="vertical"
+                android:padding="@dimen/_10sdp">
 
-            <TextView
-                android:id="@+id/movie_name"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginTop="8dp"
-                android:minLines="3"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/poster_path"
-                app:layout_constraintTop_toTopOf="@id/poster_path"
-                tools:text="movie Name" />
+                <TextView
+                    android:id="@+id/movie_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="3"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:text="movie Name" />
 
-            <TextView
-                android:id="@+id/overview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:paddingTop="12dp"
-                android:text="@string/overview"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/poster_path"
-                app:layout_constraintTop_toBottomOf="@id/backdrop_path" />
+                <TextView
+                    android:id="@+id/overview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="12dp"
+                    android:text="@string/overview"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/overview_detail"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:minLines="5"
-                android:textColor="@android:color/white"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@id/poster_path"
-                app:layout_constraintTop_toBottomOf="@id/overview"
-                tools:text="overview Details" />
+                <TextView
+                    android:id="@+id/overview_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@android:color/white"
+                    tools:text="overview Details" />
 
-            <TextView
-                android:id="@+id/tagLine"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/tagLine"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/poster_path"
-                app:layout_constraintTop_toBottomOf="@id/overview_detail" />
+                <TextView
+                    android:id="@+id/tagLine"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/tagLine"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/tagLineDetails"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColor="@android:color/white"
-                app:layout_constraintStart_toStartOf="@id/poster_path"
-                app:layout_constraintTop_toBottomOf="@id/tagLine"
-                tools:text="tagLine Details" />
+                <TextView
+                    android:id="@+id/tagLineDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@android:color/white"
+                    tools:text="tagLine Details" />
 
-            <TextView
-                android:id="@+id/status"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:text="@string/status"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/poster_path"
-                app:layout_constraintTop_toBottomOf="@id/tagLineDetails" />
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/status"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/statusDetails"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColor="@android:color/white"
-                app:layout_constraintStart_toStartOf="@id/poster_path"
-                app:layout_constraintTop_toBottomOf="@id/status"
-                tools:text="status" />
+                <TextView
+                    android:id="@+id/statusDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@android:color/white"
+                    tools:text="status" />
 
-            <TextView
-                android:id="@+id/releaseDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:text="@string/releaseDate"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/poster_path"
-                app:layout_constraintTop_toBottomOf="@id/statusDetails" />
+                <TextView
+                    android:id="@+id/releaseDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/releaseDate"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/releaseDateDetails"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:textColor="@android:color/white"
-                app:layout_constraintStart_toStartOf="@id/poster_path"
-                app:layout_constraintTop_toBottomOf="@id/releaseDate"
-                tools:text="release date" />
+                <TextView
+                    android:id="@+id/releaseDateDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@android:color/white"
+                    tools:text="release date" />
 
-            <TextView
-                android:id="@+id/vote_average"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="18dp"
-                android:text="@string/voteAverage"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="@id/poster_path"
-                app:layout_constraintTop_toBottomOf="@id/releaseDateDetails" />
+                <TextView
+                    android:id="@+id/vote_average"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:text="@string/voteAverage"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/vote_average_detail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="@dimen/_20sdp"
-                android:paddingBottom="10dp"
-                android:textColor="@android:color/white"
-                app:layout_constraintStart_toStartOf="@id/poster_path"
-                app:layout_constraintTop_toBottomOf="@id/vote_average"
-                tools:text="7.1" />
+                <TextView
+                    android:id="@+id/vote_average_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:paddingBottom="10dp"
+                    android:textColor="@android:color/white"
+                    tools:text="7.1" />
+            </LinearLayout>
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </ScrollView>
 
     <Button
-        android:layout_margin="@dimen/_5sdp"
-        android:background="@drawable/round_bg"
         android:id="@+id/buy"
-        android:textColor="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="@string/buy" />
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@drawable/round_bg"
+        android:text="@string/buy_ticket_rs_100"
+        android:textColor="@android:color/white" />
 </RelativeLayout>

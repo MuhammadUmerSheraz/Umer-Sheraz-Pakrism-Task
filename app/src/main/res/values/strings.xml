@@ -7,4 +7,10 @@
     <string name="releaseDate">Release Date</string>
     <string name="voteAverage">Vote Average</string>
     <string name="Movie_Detail">Movie Details</string>
+    <string name="upcoming_movie">Upcoming Movie</string>
+    <string name="choose_seats">Choose seats</string>
+    <string name="selected_seat_s">Selected Seat(s)</string>
+    <string name="total_bill">Total Bill</string>
+    <string name="buy_ticket_rs_100">Buy Ticket (Rs 100)</string>
+    <string name="movie_name">Movie Name</string>
 </resources>

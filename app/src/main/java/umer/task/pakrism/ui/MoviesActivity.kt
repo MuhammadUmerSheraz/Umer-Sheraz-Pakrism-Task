@@ -2,11 +2,15 @@ package umer.task.pakrism.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Filter
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_movies.*
+import kotlinx.android.synthetic.main.item_list_movies_content.view.*
 import umer.task.pakrism.R
 import umer.task.pakrism.base.BaseActivty
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import umer.task.pakrism.adapters.MoviesAdapter
+import umer.task.pakrism.adapters.GenericListAdapter
+import umer.task.pakrism.di.Modules
 import umer.task.pakrism.model.Movies
 
 class MoviesActivity : BaseActivty() {
@@ -16,6 +20,7 @@ class MoviesActivity : BaseActivty() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movies)
+        getSupportActionBar()!!.title=getString(R.string.upcoming_movie)
 
         getRecyclerViewData()
 
@@ -30,11 +35,36 @@ class MoviesActivity : BaseActivty() {
 
     private fun populateMovieRecycler(moviesList: List<Movies>) {
 
-        movieRecyclerView.adapter = MoviesAdapter(moviesList) {
-            val movieDetailsIntent = Intent(this, MovieDetailsActivity::class.java)
-            movieDetailsIntent.putExtra("id", it.id.toString())
-            startActivity(movieDetailsIntent)
+
+        movieRecyclerView.adapter = object : GenericListAdapter<Movies>(
+            R.layout.item_list_movies_content,
+            bind = { element, holder, itemCount, position ->
+                holder.view.run {
+                    element.run {
+                        movieName.text = original_title
+                        val releaseDate: ArrayList<String>  = release_date.split('-') as ArrayList<String>
+                        movieYear.text = releaseDate[0]
+                        rating_bar.rating = vote_average / 2
+
+                        Picasso.get().load(Modules.BASE_IMAGE_URL + poster_path).into(poster)
+
+                        setOnClickListener{
+                            val movieDetailsIntent = Intent(this@MoviesActivity, MovieDetailsActivity::class.java)
+                            movieDetailsIntent.putExtra("id", this.id.toString())
+                            startActivity(movieDetailsIntent)
+                        }
+                    }
+                }
+            }
+        ) {
+            override fun getFilter(): Filter {
+                TODO("Not yet implemented")
+            }
+
+        }.apply {
+            submitList(moviesList)
         }
+
 
     }
 
